@@ -1,0 +1,67 @@
+﻿
+@model ProyectoXssVisualStudio.Models.Empleado
+
+
+<@Page validateRequest="false" %>
+
+
+    @{
+        ViewBag.Title = "Validaciones";
+    }
+
+    <h2>Validaciones</h2>
+    @using (Html.BeginForm())
+    //Usamos el helper BeginForm sin argumentos para que envíe sobre la propia página
+    {
+        <div>
+            @Html.ValidationSummary(true)
+            @*Indicamos el lugar donde queremos que la vista nos incluya los errores de validación del modelo-->*@
+            <div>
+                @Html.LabelFor(model => model.Nombre)
+                <div>
+                    @Html.EditorFor(model => model.Nombre)
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Apellidos)
+                <div>
+                    @Html.EditorFor(model => model.Apellidos)
+                    @Html.ValidationMessageFor(model => model.Apellidos)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Email)
+                <div>
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Salario)
+                <div>
+                    @Html.EditorFor(model => model.Salario)
+                    @Html.ValidationMessageFor(model => model.Salario)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Pass)
+                <div>
+                    @Html.EditorFor(model => model.Pass)
+                    @Html.ValidationMessageFor(model => model.Pass)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Pass2)
+                <div>
+                    @Html.EditorFor(model => model.Pass2)
+                    @Html.ValidationMessageFor(model => model.Pass2)
+                </div>
+            </div>
+            <input type="submit" value="Enviar">
+        </div>
+
+    }
+
+
